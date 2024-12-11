@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+
+import Join from './component/Join';
+import Login from './component/Login';
+import Dashboard from './component/Dashboard';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <HashRouter>
+                <Routes>
+                    <Route path="/" element={<Login></Login>}></Route>
+                    <Route path="/join" element={<Join></Join>}></Route>
+                    <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
+                </Routes>
+            </HashRouter>
+        </div>
+    );
 }
 
 export default App;
